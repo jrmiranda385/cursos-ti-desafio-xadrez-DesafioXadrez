@@ -53,7 +53,9 @@ int main(){
     printf("L - Cavalo\n");
 
     printf("Opção [B,T,R,L]: ");
-    scanf("%c", &opcao);
+    scanf(" %c", &opcao);
+
+    printf("\n");
 
     switch (opcao)
     {
