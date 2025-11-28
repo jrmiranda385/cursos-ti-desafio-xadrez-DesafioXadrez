@@ -4,7 +4,94 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
+// função de movimentaçao do bispo
+void moveBispo(int casas){
+    if (casas > 0){
+        printf("Frente\n");
+        printf("Direita\n");
+        moveBispo(casas -1);
+    }
+}
+
+// função de movimentaçao da torre
+void moveTorre(int casas){
+    if (casas > 0){
+        printf("Direita\n");
+        moveTorre(casas -1);
+    }
+}
+
+// função de movimentaçao da Rainha
+void moveRainha(int casas){
+    if (casas > 0){
+        printf("Esquerda\n");
+        moveRainha(casas -1);
+    }
+}
+
+// função de movimentaçao do Cavalo
+void moveCavalo(){
+    int movimentaCavalo = 1; // váriavel para controlar o movimento em L
+    while (movimentaCavalo--)
+        {
+            for (int i = 0; i < 2; i++){
+                printf("Cima\n");
+            }
+            printf("Direita\n");
+        }
+}
+
+int main(){
+    char opcao;
+
+    printf("**  Movimentação das Peças de Xadrez - Nível Mestre **\n\n");
+
+    printf("** Escolha uma peça do Jogo **\n");
+    printf("B - Bispo\n");
+    printf("T - Torre\n");
+    printf("R - Rainha\n");
+    printf("L - Cavalo\n");
+
+    printf("Opção [B,T,R,L]: ");
+    scanf("%c", &opcao);
+
+    switch (opcao)
+    {
+    case 'B':
+        /* Escolheu o bispo */
+        printf("Movimentação do Bispo\n");
+        moveBispo(5);
+        printf("\n");
+        break;
+
+    case 'T':
+        printf("Movimentação da Torre\n");
+        moveTorre(5);
+        printf("\n");
+        break;
+
+    case 'R':
+        printf("Movimentação da Rainha\n");
+        moveRainha(8);
+        printf("\n");
+        break;
+
+    case 'L':
+        printf("Movimentação do Cavalo\n");
+        moveCavalo();
+        break;
+    default:
+        printf("Opção Inválida para esse jogo! Válido somente (B - T - R - C)!\n");
+
+        break;
+    }
+
+return 0;
+}
+
+
+
+//int main() {
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
@@ -28,5 +115,5 @@ int main() {
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
 
-    return 0;
-}
+//    return 0;
+//}
